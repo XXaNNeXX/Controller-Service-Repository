@@ -23,8 +23,8 @@ public class ProductController {
     public Product findProductByID(@PathVariable String id) {
         return productService.findProductByID(id);
     }
-    @DeleteMapping
-    public void removeProduct(@RequestBody String id) {
+    @DeleteMapping("/{id}")
+    public void removeProduct(@PathVariable String id) {
         productService.deleteProduct(id);
     }
 

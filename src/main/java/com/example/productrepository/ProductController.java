@@ -2,10 +2,6 @@ package com.example.productrepository;
 
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
-
 @RestController
 @RequestMapping("api/products")
 public class ProductController {
@@ -15,13 +11,21 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping()
+    /*@GetMapping()
     public List<Product> getAllProducts(){
       return productService.findAllProducts();
-    }
+    }*/
     @PostMapping
     public Product addProduct(@RequestBody NewProduct newProduct) {
         return productService.saveProduct(newProduct);
+    }
+    @GetMapping("/{id}")
+    public Product findProductByID(@PathVariable String id) {
+        return productService.findProductByID(id);
+    }
+    @DeleteMapping
+    public void removeProduct(@RequestBody String id) {
+        productService.deleteProduct(id);
     }
 
 }

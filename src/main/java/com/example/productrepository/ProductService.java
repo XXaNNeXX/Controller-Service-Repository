@@ -18,7 +18,8 @@ public class ProductService {
     }
 
     public Product saveProduct(NewProduct newProduct) {
-        Product product = new Product(UUID.randomUUID().toString(), newProduct.title(), newProduct.price());
+        IdService idService = new IdService();
+        Product product = new Product(idService.randomUUID(), newProduct.title(), newProduct.price());
         return productRepository.save(product);
     }
 

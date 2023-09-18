@@ -24,7 +24,7 @@ public class ProductService {
     }
 
     public Product findProductByID(String id) {
-        return productRepository.findProductBy(id);
+        return productRepository.findProductBy(id);   //.orElseThrow();
     }
 
     public void deleteProduct(String id) {

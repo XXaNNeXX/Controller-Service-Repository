@@ -2,6 +2,8 @@ package com.example.productrepository;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/products")
 public class ProductController {
@@ -11,10 +13,10 @@ public class ProductController {
         this.productService = productService;
     }
 
-    /*@GetMapping()
+   @GetMapping()
     public List<Product> getAllProducts(){
       return productService.findAllProducts();
-    }*/
+    }
     @PostMapping
     public Product addProduct(@RequestBody NewProduct newProduct) {
         return productService.saveProduct(newProduct);
@@ -27,5 +29,10 @@ public class ProductController {
     public void removeProduct(@PathVariable String id) {
         productService.deleteProduct(id);
     }
+
+    /*@PutMapping("/{id}")
+    public Product updateProduct(@PathVariable String id, @RequestBody Product product) {
+        return productService.updateProduct(product);
+    }*/
 
 }

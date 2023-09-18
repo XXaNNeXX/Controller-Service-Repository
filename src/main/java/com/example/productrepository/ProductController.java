@@ -30,9 +30,12 @@ public class ProductController {
         productService.deleteProduct(id);
     }
 
-    /*@PutMapping("/{id}")
+    @PutMapping("/{id}")
     public Product updateProduct(@PathVariable String id, @RequestBody Product product) {
-        return productService.updateProduct(product);
-    }*/
+        if(!id.equals(product.id())) {
+            throw new IllegalArgumentException("Product ID does not match");
+        }
+        return productService.updateProduct(id, product);
+    }
 
 }

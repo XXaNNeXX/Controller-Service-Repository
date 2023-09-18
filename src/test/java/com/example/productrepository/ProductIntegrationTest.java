@@ -91,9 +91,11 @@ public class ProductIntegrationTest {
                                 "price": 100
                             }
                             """))
-                .andExpect(status().isOk())
+                .andExpect(status().isOk())                                 //reicht aus für Testing
                 .andExpect(jsonPath("$.id").doesNotExist());
 
     }
+
+    //neuer findProductByIdTest() würde removeProductTest() bei Funktionalität bestätigen
 
 }

@@ -19,7 +19,7 @@ public class ProductIntegrationTest {
     MockMvc mockMvc;
 
     @Autowired
-    ProductRepository productRepository;
+    ProductRepository productRepository;   //Dependency Injection des Repositories; cleaner ohne Injection und Zugriff direkt auf den ProductService
 
     @Test
     @DirtiesContext

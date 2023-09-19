@@ -25,6 +25,13 @@ public class ProductController {
     public Product findProductByID(@PathVariable String id) {
         return productService.findProductByID(id);
     }
+
+    /* alternative:
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> getProduct(@PathVariable String id) {
+        return ResponseEntity.of(productService.getProduct(id));
+    }
+    */
     @DeleteMapping("/{id}")
     public void removeProduct(@PathVariable String id) {
         productService.deleteProduct(id);
